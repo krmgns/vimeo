@@ -43,18 +43,35 @@ $vimeoRequest = new VimeoRequest($vimeo);
 Note: See `pre()` function in test.php.
 
 ** simple
-
 ```php
 $response = $vimeoRequest->get('categories');
 pre($response, 1);
 ```
 
 ** with endpoint/request params
-
 ```php
 $response = $vimeoRequest->get('categories/:category/channels', array(
     'end' => array('category' => 'music'),
     'req' => array('page' => 1, 'per_page' => 2)
 ));
+pre($response, 1);
+```
+
+** with endpoint/request params (or)
+```php
+$response = $vimeoRequest->get('categories/:category/channels', array(
+    'end' => 'category=music',
+    'req' => 'page=1&per_page=2'
+));
+pre($response, 1);
+```
+
+** with endpoint/request params (or)
+```php
+$vimeoRequest->get('categories/:category/channels', array(
+    'end' => array('category' => 'music'),
+    'req' => array('page' => 1, 'per_page' => 2)
+));
+$response = $vimeoRequest->getResponseBody();
 pre($response, 1);
 ```
