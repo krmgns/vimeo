@@ -27,7 +27,7 @@ $vimeo = new Vimeo(CLIENT_ID, CLIENT_SECRET);
 // Set scope as you need
 $vimeo->setScope('public private');
 // Set if you wanna change default timeouts
-// $vimeo->setTimeouts($timeout, $timeoutConnect);
+// $vimeo->setTimeouts($timeout (default=5), $timeoutConnect (default=1));
 
 // This will authorize your simple requests
 // (i.e: GET /categories) and set Vimeo::accessToken
