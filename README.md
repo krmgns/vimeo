@@ -34,7 +34,8 @@ if (!isset($_SESSION['accessToken'])) {
 }
 ```
 
-** Simple
+**Simple
+
 ```php
 $response = $vimeoRequest->get('categories');
 pre($response, 1);
