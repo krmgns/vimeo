@@ -108,7 +108,7 @@ $vimeoRequest->post('channels', array(
     'privacy'     => 'anybody'
 ), function ($request) {
     if ($request->getResponseHeader('status_code') == 201) {
-        print 'Channels created.';
+        print 'Channel created.';
     } else {
         print $request->getResponseHeader(0);
     }
@@ -123,7 +123,7 @@ $vimeoRequest->patch('channels', array(
     'privacy'     => 'users'
 ), function ($request) {
     if ($request->getResponseHeader('status_code') == 204) {
-        print 'Channels updated.';
+        print 'Channel updated.';
     } else {
         print $request->getResponseHeader(0);
     }
@@ -136,7 +136,7 @@ $vimeoRequest->delete('channels/:channel_id', array(
     'channel_id' => '123',
 ), function ($request) {
     if ($request->getResponseHeader('status_code') == 204) {
-        print 'Channels deleted.';
+        print 'Channel deleted.';
     } else {
         print $request->getResponseHeader(0);
     }
