@@ -76,6 +76,7 @@ $vimeoRequest = new VimeoRequest($vimeo);
 // });
 
 # Create a new channel
+// // POST /channels
 // $vimeoRequest->post('channels', array(
 //     'name'        => 'Test',
 //     'description' => 'Lorem ipsum dolor!',
@@ -89,6 +90,7 @@ $vimeoRequest = new VimeoRequest($vimeo);
 // });
 
 # Edit a channel's info
+// // PATCH /channels
 // $vimeoRequest->patch('channels', array(
 //     'name'        => 'Test (edited)',
 //     'description' => 'Lorem ipsum dolor! (edited)',
@@ -102,6 +104,7 @@ $vimeoRequest = new VimeoRequest($vimeo);
 // });
 
 # Delete a channel
+// // DELETE /channels/123
 // $vimeoRequest->delete('channels/:channel_id', array(
 //     'channel_id' => '123',
 // ), function ($request) {
@@ -113,6 +116,7 @@ $vimeoRequest = new VimeoRequest($vimeo);
 // });
 
 # Add a video to a channel
+// // PUT /channels/123/videos/456
 // $vimeoRequest->put('channels/:channel_id/videos/:video_id', array(
 //     'channel_id' => '123',
 //     'video_id'   => '456',

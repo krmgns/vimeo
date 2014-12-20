@@ -96,12 +96,13 @@ $vimeoRequest->get('categories/:category/channels', array(
 });
 ```
 
-**Methods**
+**Request Methods**
 
 All Vimeo API supported methods are available (`GET, POST, PUT, PATCH, DELETE`)
 
 ** Create a new channel
 ```php
+// POST /channels
 $vimeoRequest->post('channels', array(
     'name'        => 'Test',
     'description' => 'Lorem ipsum dolor!',
@@ -117,6 +118,7 @@ $vimeoRequest->post('channels', array(
 
 ** Edit a channel's info
 ```php
+// PATCH /channels
 $vimeoRequest->patch('channels', array(
     'name'        => 'Test (edited)',
     'description' => 'Lorem ipsum dolor! (edited)',
@@ -132,6 +134,7 @@ $vimeoRequest->patch('channels', array(
 
 ** Delete a channel
 ```php
+// DELETE /channels/123
 $vimeoRequest->delete('channels/:channel_id', array(
     'channel_id' => '123',
 ), function ($request) {
@@ -145,6 +148,7 @@ $vimeoRequest->delete('channels/:channel_id', array(
 
 ** Add a video to a channel
 ```php
+// PUT /channels/123/videos/456
 $vimeoRequest->put('channels/:channel_id/videos/:video_id', array(
     'channel_id' => '123',
     'video_id'   => '456',
