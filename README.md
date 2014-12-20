@@ -7,6 +7,7 @@
 - See for scops: https://developer.vimeo.com/api/authentication#scopes
 - I am not going to show examples for all endpoints, see all endpoints here: https://developer.vimeo.com/api/endpoints
 - Note: If you want to upload videos via API, you need to "Request Upload Permissions" after creating your app
+- See more details: https://developer.vimeo.com/api
 
 **How to Use**
 
