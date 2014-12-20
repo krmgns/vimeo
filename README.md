@@ -37,14 +37,16 @@ if (!isset($_SESSION['accessToken'])) {
 }
 ```
 
-**simple
+Note: See `pre()` function in test.php.
+
+** simple
 
 ```php
 $response = $vimeoRequest->get('categories');
 pre($response, 1);
 ```
 
-# with endpoint/request params
+** with endpoint/request params
 
 ```php
 $response = $vimeoRequest->get('categories/:category/channels', array(
