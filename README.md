@@ -111,7 +111,7 @@ try {
 }
 ```
 
-** try/catch (searching for header response codes)
+** try/catch (searching for response codes)
 ```php
 try {
     // Non-exist endpoint
