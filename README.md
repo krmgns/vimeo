@@ -53,7 +53,7 @@ pre($response, 1);
 
 ```php
 $response = $vimeoRequest->get('categories/:category/channels', array(
-    'uri' => array('category' => 'music'),
+    'end' => array('category' => 'music'),
     'req' => array('page' => 1, 'per_page' => 2)
 ));
 pre($response, 1);
