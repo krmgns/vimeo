@@ -75,6 +75,55 @@ $vimeoRequest = new VimeoRequest($vimeo);
 //     }
 // });
 
+# Create a new channel
+$vimeoRequest->post('channels', array(
+    'name'        => 'Test',
+    'description' => 'Lorem ipsum dolor!',
+    'privacy'     => 'anybody'
+), function ($request) {
+    if ($request->getResponseHeader('status_code') == 201) {
+        print 'Channels created.';
+    } else {
+        print $request->getResponseHeader(0);
+    }
+});
+
+# Edit a channel's info
+$vimeoRequest->patch('channels', array(
+    'name'        => 'Test (edited)',
+    'description' => 'Lorem ipsum dolor! (edited)',
+    'privacy'     => 'users'
+), function ($request) {
+    if ($request->getResponseHeader('status_code') == 204) {
+        print 'Channels updated.';
+    } else {
+        print $request->getResponseHeader(0);
+    }
+});
+
+# Delete a channel
+$vimeoRequest->delete('channels/:channel_id', array(
+    'channel_id' => '123',
+), function ($request) {
+    if ($request->getResponseHeader('status_code') == 204) {
+        print 'Channels deleted.';
+    } else {
+        print $request->getResponseHeader(0);
+    }
+});
+
+# Add a video to a channel
+$vimeoRequest->put('channels/:channel_id/videos/:video_id', array(
+    'channel_id' => '123',
+    'video_id'   => '456',
+), function ($request) {
+    if ($request->getResponseHeader('status_code') == 204) {
+        print 'Channels deleted.';
+    } else {
+        print $request->getResponseHeader(0);
+    }
+});
+
 # try/catch
 // try {
 //    // Non-existent endpoint
