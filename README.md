@@ -86,7 +86,39 @@ $vimeoRequest->get('categories/:category/channels', array(
     // pre($response);
     $response = json_decode($response, true);
     foreach ($response['data'] as $data) {
-        printf("Channel URI: http://vimeo.com%s (%s)\n", $data['uri'], strtolower($data['name']));
+        printf("Channel URI: http://vimeo.com%s (%s)\n",
+                $data['uri'], strtolower($data['name']));
     }
 });
+```
+
+** try/catch
+```php
+try {
+    $vimeoRequest->get('foo');
+} catch (VimeoException $e) {
+    print $e->getMessage() ."\n\n";
+    print $vimeoRequest->getResponseHeader(0) ."\n";
+    print $vimeoRequest->getResponseHeader('status_code') ."\n";
+    print $vimeoRequest->getResponseHeader('status_text') ."\n";
+    print print_r($vimeoRequest->getResponseHeaders(), 1);
+}
+```
+
+** try/catch (searching for header response codes)
+```php
+try {
+    $vimeoRequest->get('foo');
+} catch (VimeoException $e) {
+    $headers = $vimeoRequest->getResponseHeaders();
+    switch ($headers['status_code']) {
+        case 403:
+        case 404:
+            print 'Error: '. $headers['status_text'];
+            break;
+        case 200:
+            print 'Enpoint found.';
+            break;
+    }
+}
 ```
