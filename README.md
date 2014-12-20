@@ -23,10 +23,12 @@ $vimeo = new Vimeo(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, SCOPE);
 // But does not need for all requests
 $vimeo = new Vimeo(CLIENT_ID, CLIENT_SECRET);
 $vimeo->setScope('public private');
-// This will authorize your simple requests (i.e: GET /categories) and set Vimeo::accessToken
+// This will authorize your simple requests
+//   (i.e: GET /categories) and set Vimeo::accessToken
 $vimeo->authorize();
 
-// But you can store it after `authorize` if you don't wanna make new requests for accessToken
+// But you can store it after `authorize`
+//   if you don't wanna make new requests for accessToken
 if (!isset($_SESSION['accessToken'])) {
     $vimeo->authorize();
     $_SESSION['accessToken'] = $vimeo->getAccessToken();
