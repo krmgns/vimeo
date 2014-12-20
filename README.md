@@ -75,3 +75,18 @@ $vimeoRequest->get('categories/:category/channels', array(
 $response = $vimeoRequest->getResponseBody();
 pre($response, 1);
 ```
+
+** with callback
+```php
+$vimeoRequest->get('categories/:category/channels', array(
+    'end' => array('category' => 'music'),
+    'req' => array('page' => 1, 'per_page' => 2)
+), function($vimeoRequest){
+    $response = $vimeoRequest->getResponseBody();
+    // pre($response);
+    $response = json_decode($response, true);
+    foreach ($response['data'] as $data) {
+        printf("Channel URI: http://vimeo.com%s (%s)\n", $data['uri'], strtolower($data['name']));
+    }
+});
+```
