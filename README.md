@@ -59,7 +59,7 @@ $response = $vimeoRequest->get('categories/:category/channels', array(
 pre($response, 1);
 ```
 
-** with endpoint/request params (string form)
+** with endpoint/request params (query string form)
 ```php
 $response = $vimeoRequest->get('categories/:category/channels', array(
     'end' => 'category=music',
