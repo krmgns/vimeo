@@ -9,24 +9,25 @@
 **How to Use**
 
 ```php
-# Define your Client Identifier, Client Secret and Access Token
+// Define your Client Identifier, Client Secret and Access Token
 define('CLIENT_ID',     'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 define('CLIENT_SECRET', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 define('ACCESS_TOKEN',  null);
-define('SCOPE', 'public private ')
+define('SCOPE', 'public private create');
 
-# Init Vimeo object
-# I used this this way using "Generate an Access Token" with full scope
-$vimeo = new Vimeo(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN);
+// Init Vimeo object
+// I used this this way using "Generate an Access Token" with full scope
+$vimeo = new Vimeo(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, SCOPE);
 
-# But does not need for all requests
+// But does not need for all requests
 $vimeo = new Vimeo(CLIENT_ID, CLIENT_SECRET);
 $vimeo->setScope('public private');
-# This will authorize your simple requests and set Vimeo::accessToken
+// This will authorize your simple requests (i.e: GET /categories) and set Vimeo::accessToken
 $vimeo->authorize();
 
-# But you can store it if you dont wanna make a new requests for accessToken
+// But you can store it after `authorize` if you dont wanna make a new requests for accessToken
 if (!isset($_SESSION['accessToken'])) {
+    $vimeo->authorize();
     $_SESSION['accessToken'] = $vimeo->getAccessToken();
 } else {
     $vimeo->setAccessToken($_SESSION['accessToken']);
