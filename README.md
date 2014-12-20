@@ -35,6 +35,9 @@ if (!isset($_SESSION['accessToken'])) {
 } else {
     $vimeo->setAccessToken($_SESSION['accessToken']);
 }
+
+// After all init VimeoRequest object
+$vimeoRequest = new VimeoRequest($vimeo);
 ```
 
 Note: See `pre()` function in test.php.
