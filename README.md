@@ -2,11 +2,11 @@
 
 - Create a new app first on this page https://developer.vimeo.com/apps
 - Grab your "Client Identifier" and "Client Secret"
-- Use "Generate an Access Token" with full scope options (you will need this for some special requests i.e GET /me, and actually I used this for all requests cos it is some comlicated)
-- I used "Unauthenticated Requests" for all, see: requests https://developer.vimeo.com/api/authentication#unauthenticated-requests
+- Use "Generate an Access Token" with full scope options (you will need this for some special requests i.e `GET /me`, and actually I used this for all requests cos it is some complicated, so grap "Your new Access Token" at same time)
+- I used "Unauthenticated Requests" for all, see: https://developer.vimeo.com/api/authentication#unauthenticated-requests
 - See for scops: https://developer.vimeo.com/api/authentication#scopes
 - I am not going to show examples for all endpoints, see all endpoints here: https://developer.vimeo.com/api/endpoints
-- Note: If you want to upload videos via API, you need to "Request Upload Permissions" after creating your app (and grap "Your new Access Token" at this time)
+- Note: If you want to upload videos via API, you need to "Request Upload Permissions" after creating your app
 
 **How to Use**
 
