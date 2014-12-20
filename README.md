@@ -18,11 +18,12 @@ define('ACCESS_TOKEN',  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 define('SCOPE', 'public private create');
 
 // Init Vimeo object
-// I used this this way using "Generate an Access Token" with full scope
+// I used this way using "Generate an Access Token" with full scope
 $vimeo = new Vimeo(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, SCOPE);
 
 // But does not need for all requests
 $vimeo = new Vimeo(CLIENT_ID, CLIENT_SECRET);
+// Set scope as you need
 $vimeo->setScope('public private');
 // This will authorize your simple requests
 // (i.e: GET /categories) and set Vimeo::accessToken
@@ -84,8 +85,8 @@ pre($response, 1);
 $vimeoRequest->get('categories/:category/channels', array(
     'end' => array('category' => 'music'),
     'req' => array('page' => 1, 'per_page' => 2)
-), function ($vimeoRequest) {
-    $response = $vimeoRequest->getResponseBody();
+), function ($request) {
+    $response = $request->getResponseBody();
     // pre($response);
     $response = json_decode($response, true);
     foreach ($response['data'] as $data) {
@@ -100,7 +101,7 @@ $vimeoRequest->get('categories/:category/channels', array(
 ** try/catch
 ```php
 try {
-    // Non-exist endpoint
+    // Non-existent endpoint
     $vimeoRequest->get('foo');
 } catch (VimeoException $e) {
     print $e->getMessage() ."\n\n";
@@ -114,7 +115,7 @@ try {
 ** try/catch (searching for response codes)
 ```php
 try {
-    // Non-exist endpoint
+    // Non-existent endpoint
     $vimeoRequest->get('foo');
 } catch (VimeoException $e) {
     $headers = $vimeoRequest->getResponseHeaders();
