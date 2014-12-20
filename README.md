@@ -98,7 +98,7 @@ $vimeoRequest->get('categories/:category/channels', array(
 
 **Methods**
 
-All Vimeo API supported methods are available (`get, post, put, patch, delete`)
+All Vimeo API supported methods are available (`GET, POST, PUT, PATCH, DELETE`)
 
 ** Create a new channel
 ```php
@@ -150,7 +150,7 @@ $vimeoRequest->put('channels/:channel_id/videos/:video_id', array(
     'video_id'   => '456',
 ), function ($request) {
     if ($request->getResponseHeader('status_code') == 204) {
-        print 'Channels deleted.';
+        print 'Video added to a channel.';
     } else {
         print $request->getResponseHeader(0);
     }
