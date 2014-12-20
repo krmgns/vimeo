@@ -100,6 +100,7 @@ $vimeoRequest->get('categories/:category/channels', array(
 ** try/catch
 ```php
 try {
+    // Non-exist endpoint
     $vimeoRequest->get('foo');
 } catch (VimeoException $e) {
     print $e->getMessage() ."\n\n";
