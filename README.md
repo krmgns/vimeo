@@ -5,6 +5,7 @@
 - Use "Generate an Access Token" with full scope options (you will need this for some special requests i.e GET /me, and actually I used this for all requests cos it is some comlicated)
 - Note: If you want to upload videos via API, you need to "Request Upload Permissions" after creating your app (and grap "Your new Access Token" at this time)
 - See for scops: https://developer.vimeo.com/api/authentication#scopes
+- I am not going to show examples for all endpoints, see all endpoints here: https://developer.vimeo.com/api/endpoints
 
 **How to Use**
 
@@ -25,7 +26,7 @@ $vimeo->setScope('public private');
 // This will authorize your simple requests (i.e: GET /categories) and set Vimeo::accessToken
 $vimeo->authorize();
 
-// But you can store it after `authorize` if you dont wanna make new requests for accessToken
+// But you can store it after `authorize` if you don't wanna make new requests for accessToken
 if (!isset($_SESSION['accessToken'])) {
     $vimeo->authorize();
     $_SESSION['accessToken'] = $vimeo->getAccessToken();
@@ -34,9 +35,19 @@ if (!isset($_SESSION['accessToken'])) {
 }
 ```
 
-**Simple
+**simple
 
 ```php
 $response = $vimeoRequest->get('categories');
+pre($response, 1);
+```
+
+# with endpoint/request params
+
+```php
+$response = $vimeoRequest->get('categories/:category/channels', array(
+    'uri' => array('category' => 'music'),
+    'req' => array('page' => 1, 'per_page' => 2)
+));
 pre($response, 1);
 ```
