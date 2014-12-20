@@ -50,7 +50,7 @@ $response = $vimeoRequest->get('categories');
 pre($response, 1);
 ```
 
-** with endpoint/request params (array form)
+** with endpoint/request params (array)
 ```php
 $response = $vimeoRequest->get('categories/:category/channels', array(
     'end' => array('category' => 'music'),
@@ -59,7 +59,7 @@ $response = $vimeoRequest->get('categories/:category/channels', array(
 pre($response, 1);
 ```
 
-** with endpoint/request params (query string form)
+** with endpoint/request params (query string)
 ```php
 $response = $vimeoRequest->get('categories/:category/channels', array(
     'end' => 'category=music',
@@ -68,12 +68,13 @@ $response = $vimeoRequest->get('categories/:category/channels', array(
 pre($response, 1);
 ```
 
-** with endpoint/request params (without waiting return data get())
+** with endpoint/request params
 ```php
 $vimeoRequest->get('categories/:category/channels', array(
     'end' => array('category' => 'music'),
     'req' => array('page' => 1, 'per_page' => 2)
 ));
+// Get response in this style
 $response = $vimeoRequest->getResponseBody();
 pre($response, 1);
 ```
