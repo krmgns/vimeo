@@ -15,6 +15,7 @@
 define('CLIENT_ID',     'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 define('CLIENT_SECRET', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 define('ACCESS_TOKEN',  'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+// No need if full scope provided accessToken is in use while requests
 define('SCOPE', 'public private create');
 
 // Init Vimeo object
