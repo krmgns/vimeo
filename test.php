@@ -65,7 +65,7 @@ $vimeoRequest = new VimeoRequest($vimeo);
 // $vimeoRequest->get('categories/:category/channels', array(
 //     'end' => array('category' => 'music'),
 //     'req' => array('page' => 1, 'per_page' => 2)
-// ), function ($request) {
+// ), function ($request /* is $vimeoRequest that called get() method */) {
 //     $response = $request->getResponseBody();
 //     // pre($response);
 //     $response = json_decode($response, true);
