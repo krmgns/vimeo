@@ -56,8 +56,9 @@ $response = $vimeoRequest->get('categories');
 pre($response, 1);
 // Actually returns response body calling this
 $vimeoRequest->getResponseBody()
-// Wanna headers? Here
+// Wanna headers?
 $vimeoRequest->getResponseHeaders()
+$vimeoRequest->getResponseHeader('status_code')
 ```
 
 ** with endpoint/request params (array)
