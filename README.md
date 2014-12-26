@@ -54,6 +54,10 @@ Note: See `pre()` function in test.php.
 ```php
 $response = $vimeoRequest->get('categories');
 pre($response, 1);
+// Actually returns response body calling this
+$vimeoRequest->getResponseBody()
+// Wanna headers? Here
+$vimeoRequest->getResponseHeaders()
 ```
 
 ** with endpoint/request params (array)
@@ -62,6 +66,8 @@ $response = $vimeoRequest->get('categories/:category/channels', array(
     'end' => array('category' => 'music'),
     'req' => array('page' => 1, 'per_page' => 2)
 ));
+// or get response in this style
+// $response = $vimeoRequest->getResponseBody();
 pre($response, 1);
 ```
 
@@ -71,17 +77,6 @@ $response = $vimeoRequest->get('categories/:category/channels', array(
     'end' => 'category=music',
     'req' => 'page=1&per_page=2'
 ));
-pre($response, 1);
-```
-
-** with endpoint/request params
-```php
-$vimeoRequest->get('categories/:category/channels', array(
-    'end' => array('category' => 'music'),
-    'req' => array('page' => 1, 'per_page' => 2)
-));
-// Get response in this style
-$response = $vimeoRequest->getResponseBody();
 pre($response, 1);
 ```
 

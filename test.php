@@ -43,6 +43,8 @@ $vimeoRequest = new VimeoRequest($vimeo);
 //     'end' => array('category' => 'music'),
 //     'req' => array('page' => 1, 'per_page' => 2)
 // ));
+// or get response in this style
+// $response = $vimeoRequest->getResponseBody();
 // pre($response, 1);
 
 # with endpoint/request params (query string)
@@ -50,15 +52,6 @@ $vimeoRequest = new VimeoRequest($vimeo);
 //     'end' => 'category=music',
 //     'req' => 'page=1&per_page=2'
 // ));
-// pre($response, 1);
-
-# with endpoint/request params
-// $vimeoRequest->get('categories/:category/channels', array(
-//     'end' => array('category' => 'music'),
-//     'req' => array('page' => 1, 'per_page' => 2)
-// ));
-// Get response in this style
-// $response = $vimeoRequest->getResponseBody();
 // pre($response, 1);
 
 # with callback
