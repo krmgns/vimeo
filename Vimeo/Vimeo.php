@@ -236,6 +236,11 @@ class Vimeo
         $this->responseHeaders = $this->parseHeaders('response', $responseHeaders);
         $this->responseBody    = trim($responseBody);
 
+        // Check response headers
+        if (empty($this->responseHeaders)) {
+            throw new VimeoException('No headers recieved!');
+        }
+
         // Check status code
         if (preg_match('~^[45]\d{2}~', (string) $this->responseHeaders['status_code'])) {
             throw new VimeoException("Response error!\n status_code:%s status_text:%s",
