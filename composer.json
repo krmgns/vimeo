@@ -1,0 +1,17 @@
+{
+    "name": "qeremy/vimeo",
+    "type": "library",
+    "version": "v0.1",
+    "homepage": "http://github.com/qeremy/vimeo",
+    "description": "A PHP-based wrapper for the Vimeo API",
+    "keywords": ["vimeo", "api"],
+    "license": "Apache License 2.0",
+    "authors": [{
+        "name": "Kerem Gunes",
+        "email": "qeremy@gmail.com",
+        "homepage": "http://qeremy.com"
+    }],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
